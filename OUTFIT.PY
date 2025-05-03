@@ -22,7 +22,7 @@ def get_weather_auto():
         location_data = requests.get("https://ipinfo.io").json()
         city = location_data.get("city", "Unknown")
 
-        API_KEY = "c58e3897173f433927b2eb3cf4fd1e92"  # Replace with your API key
+        API_KEY = ""  # Replace with your API key
         weather_url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
         weather_data = requests.get(weather_url).json()
         return city, weather_data['main']['temp'], weather_data['weather'][0]['description']
