@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dewie's Dressing Room</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #f5f5f5;
+            color: #1f1f1f;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1f1f1f;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #8e8e8e;
+        }
+
+        /* Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 1000;
+            padding: 15px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li {
+            font-size: 14px;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: url('https://i.pinimg.com/736x/c7/69/0d/c7690dda52e71b7ee1826fc425c6adef.jpg') center/cover no-repeat;
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Dynamic Greeting */
+        .dynamic-greeting {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #f5f5f5;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .dynamic-greeting span {
+            display: block;
+            font-size: 22px;
+            color: #555;
+        }
+
+        /* Main Sections Layout */
+        .main-sections {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 40px 80px;
+            gap: 20px;
+        }
+
+        /* News Links */
+        .greeting-section {
+            flex: 1;
+        }
+
+        .news-section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .news-item {
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .news-item:hover {
+            transform: scale(1.02);
+        }
+
+        .news-item a {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f1f1f;
+        }
+
+        .news-item p {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        /* Highlights */
+        .highlight-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .highlight-section {
+            flex: 1;
+            text-align: center;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-section img {
+            width: 100%;
+            height: 300px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 80px;
+            gap: 20px;
+        }
+
+        .features h2 {
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .feature-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .feature-button {
+            text-align: center;
+            flex: 1;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-button:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-button img {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .feature-button a {
+            display: block;
+            font-size: 18px;
+            text-decoration: underline;
+            font-family: Georgia, serif;
+            font-weight: normal;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #1f1f1f;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function displayGreeting() {
+            const hour = new Date().getHours();
+            let greeting = 'Good Morning!';
+            if (hour >= 12 && hour < 17) {
+                greeting = 'Good Noon!';
+            } else if (hour >= 17) {
+                greeting = 'Good Evening!';
+            }
+            document.getElementById('greeting').innerText = greeting;
+        }
+
+        window.onload = displayGreeting;
+
+        // Slideshow for Season Must-Have
+        const images = [
+            "https://product-images-cdn.liketoknow.it/8r38EEcehi4p6lIoL8Qx8wBB1o5X4SPIg5YSxf3Ko41TMwCcjZDZofy18sj9o8J_CG.vZ7BAabOcHSCGZu3C33bVhQxydemEI.uqUk4ltpFjHo6Soo3G6DPwkBmjSgWZwOvLu2dPIus-?v=2&auto=format&fm=webp&w=256&h=256&fit=crop&q=80",
+            "https://product-images-cdn.liketoknow.it/jKNFILsj7WNVuBhwUUsCLyz87HN7XbuH0X1JBXM0GZmQd456vwzvvlZXh4MrDh3IN.UKAwpwQi_nD_Pfc_cz8NfaUnvo3ninVg2LYM4UEBYUrOghRBj6iId2nHCMM.sQbEWgMW99swXKTrWXP7XgeAcqfgtCLtocxxQ-?v=2&auto=format&fm=webp&w=256&h=256&fit=crop&q=80",
+            "https://product-images-cdn.liketoknow.it/J7CIM0p_o0uMAeVUuxxxIRppnzVJW_cZPUYRsfk9v1Yt9AqLHI1lpRt86.YhTLWjZrEngrWUmjznqs7r3FWGqvNyKPYJvWJTOKLYrMo_zEAUIQXQCul9VGJ0zXmEVc3_tKfA2yTvo0RiiHCF7dPq8MVcM5ERizTs.XA-?v=2&auto=format&fm=webp&w=256&h=256&fit=crop&q=80",
+            "https://product-images-cdn.liketoknow.it/qBNBzePUI8vUlYhoQk40jSPn52Hm.05nURpHz.KfoBGvsRssC54FzfI.9.FsoudSz72TUJ4Du1aG0.VhJO7VR.R60MW7ftJ5rVnvxTmfp_UlQoTZeel2u5qjZU8YklWcgFKDRM2ELfjxvQnuzLP1srkLeX8G3x94vtyVhXZ1xmQjy9.7GDGEeW.aXJutt1kvAC8lGLpofi.jzC4U.cRowOKlxd8klr6P0tOVbcXHlhFA2wP_hEmUK7ajcuWxbtDOuIxJDHjEST04tC48o6T01DJ6yzbCPbClhfgZubTjKShn9GER9_kbUvdXjiBFksnaeLY_ik3b4gtKCLF69m5xZZKjsP4I3Lw0yQ0eQ1CZFErWeJQ0dCsUB72YKX7Ssg7NL7baU9dtmTBMlDoLQVVnAw--?v=2&auto=format&fm=webp&w=256&h=256&fit=crop&q=80",
+            "https://product-images-cdn.liketoknow.it/on6C3unqGzXXBbUPDZP7isBqvMyrAM24ECPxWA8FxXHYAvXSv3_So5guhi7_5u7k6pkLURYUxA6J.22jMd.u9B8KSm51b.YEqJ5zQdukK2GSCm6PNRAhJP0HIKRpP681zxFGuMr_wR8b63.LoFg8s5mVGBBPZ.VLHwc-?v=2&auto=format&fm=webp&w=256&h=256&fit=crop&q=80"
+        ];
+
+        let currentIndex = 0;
+
+        function updateImage() {
+            const imageElement = document.getElementById('season-must-have');
+            imageElement.src = images[currentIndex];
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        setInterval(updateImage, 3000); // Change image every 3 seconds
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Dewie's Dressing Room</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <div class="hero-text">
+            <h1>Explore the World of Fashion</h1>
+        </div>
+    </div>
+
+    <!-- Greetings Section -->
+    <div class="dynamic-greeting">
+        <span id="greeting"></span>
+        <span>What do you wanna explore?</span>
+    </div>
+
+    <!-- Main Sections -->
+    <div class="main-sections">
+        <div class="greeting-section">
+            <div class="news-section-title">Explore Latest Fashion News</div>
+            <div class="news-grid">
+                <div class="news-item">
+                    <a href="https://www.vogue.in/fashion/fashion-what-to-buy">Vogue Fashion Trends</a>
+                </div>
+                <div class="news-item">
+                    <a href="https://www.vogue.com/fashion" target="_blank">Vogue Fashion Trends</a>
+                    <p>Explore the top fashion trends curated by Vogue for this season.</p>
+                </div>
+                <div class="news-item">
+                    <a href="https://www.elle.com/fashion" target="_blank">Elle: The Latest in Style</a>
+                    <p>Stay updated with Elle's insights on the latest fashion styles.</p>
+                </div>
+                <div class="news-item">
+                    <a href="https://www.glamour.com/fashion" target="_blank">Glamour's Fall Must-Haves</a>
+                    <p>Discover the must-have pieces for fall, recommended by Glamour.</p>
+                </div>
+                <div class="news-item">
+                    <a href="https://www.harpersbazaar.com/fashion" target="_blank">Harper's Bazaar Style Guide</a>
+                    <p>Get inspired by Harper's Bazaar's expert style guide.</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Star Style of the Day -->
+<div>
+    <a href="https://www.etsy.com/listing/962180710/svadebnyj-aket-andrea-svadebnyj-kostum-o?click_key=11693fd424e4ce6e1b22ff7b507b6b99486800f1:962180710&click_sum=a47ec2b3&ref=shop_home_active_7&frs=1&sts=1" target="_blank">
+        <div class="highlight-title">Star Style of the Day</div>
+        <div class="highlight-section">
+            <img src="https://i.pinimg.com/736x/d1/1b/62/d11b6211bbff07dfa82bacdb257a1c11.jpg" alt="Star Style of the Day">
+        </div>
+    </a>
+</div>
+
+
+        <!-- Season Must-Have -->
+        <div>
+            <a href="https://rstyle.me/+0bV4Wu2L7x863vHmSOolVA?li=96b0c9bb-1889-11ed-94c2-0242ac110002&lpm=EXACT&pt=timeline&__cid=1144&l=en&p=explore-displayName-posts-id&rr=explore-displayName-posts-id&r=explore-displayName-posts-id&vid=26987480-c973-418a-bf79-9390078d198f&hpd=false" class="highlight-title">Season Must-Have</a>
+            <div class="highlight-section">
+                <img id="season-must-have" src="https://via.placeholder.com/500">
+            </div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+        <h2>Explore Features</h2>
+        <div class="feature-buttons">
+            <div class="feature-button">
+                <img src="https://i.pinimg.com/736x/e5/15/69/e515692f60320700d9f86d9fe0691e03.jpg" alt="Outfit Suggestions">
+                <a href="http://localhost:8502">Outfit Suggestions</a>
+            </div>
+            <div class="feature-button">
+                <img src="https://i.pinimg.com/736x/57/42/91/574291b1f3525b510ae4caf1f166e16d.jpg " alt="Digital Wardrobe">
+                <a href="http://localhost:8501" target="_blank">Digital Wardrobe</a>
+            </div>
+            <div class="feature-button">
+                <img src="https://i.pinimg.com/736x/96/6e/07/966e0793e173513f98c34c6280b4b910.jpg" alt="Outfit Review">
+                <a href="http://localhost:8503">Outfit Review</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Dewie's Dressing Room. All rights reserved.
+    </footer>
+</body>
+</html>
+
+
+
+
+

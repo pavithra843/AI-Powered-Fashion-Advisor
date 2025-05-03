@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dewie's Dressing Room</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fdfdfd;
+            color: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            padding: 40px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: #333;
+        }
+
+        /* Shared Section Styles */
+        .section {
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 18px;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-links {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .auth-links a {
+            font-size: 18px;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Landing Page */
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .text-section {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .text-section h1 {
+            font-size: 100px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-section img {
+            width: 70%;
+            max-width: 450px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .text-section {
+                padding-right: 0;
+            }
+
+            .text-section h1 {
+                font-size: 60px;
+            }
+
+            .image-section img {
+                width: 90%;
+                margin-top: 20px;
+            }
+
+            .auth-links {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="landingPage" class="container">
+        <div class="header">
+            <div class="logo">Dewie's Dressing Room</div>
+        </div>
+        <div class="main-content">
+            <div class="text-section">
+                <h1>Your<br>Wardrobe,<br>Evolved</h1>
+                <div class="auth-links">
+                    <button onclick="showPage('loginPage')">Login</button>
+                    <button onclick="showPage('signupPage')">Sign Up</button>
+                </div>
+            </div>
+            <div class="image-section">
+                <img src="https://i.pinimg.com/736x/43/a2/68/43a268ccb17b5253196de9e0c65a0e97.jpg" alt="Wardrobe Display">
+            </div>
+        </div>
+    </div>
+
+    <div id="loginPage" class="section hidden">
+        <div class="logo">Dewie's Dressing Room</div>
+        <div class="form-group">
+            <label for="username">Username or Email</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" onclick="window.location.href='test.html'">Sign Up</button>
+        <div class="auth-links">
+            <a href="#" onclick="showPage('landingPage')">Back</a>
+            <a href="#" onclick="showPage('signupPage')">Sign Up</a>
+        </div>
+    </div>
+
+    <div id="signupPage" class="section hidden">
+        <div class="logo">Dewie's Dressing Room</div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" onclick="window.location.href='test.html'">Sign Up</button>
+        <div class="auth-links">
+            <a href="#" onclick="showPage('landingPage')">Back</a>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.container, .section');
+            pages.forEach(page => page.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
