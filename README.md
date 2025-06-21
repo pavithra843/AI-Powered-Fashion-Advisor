@@ -22,8 +22,7 @@ APIs: Pinterest, OpenWeatherMap
 Installation Steps:
 
 1. Clone the repo
-git clone https://github.com/yourusername/fashion-advisor.git
-cd fashion-advisor
+git clone https://github.com/Prerana004/Dewie-s-Dressing-Room.git
 
 2. Create a virtual environment
 python -m venv venv
