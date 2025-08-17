@@ -1,4 +1,4 @@
-# Dewie-s-Dressing-Room
+# AI-Powered Fashion Advisor
 
 AI-Powered Fashion Advisor
 An intelligent fashion assistant that uses AI to provide personalized outfit suggestions, styling feedback, and trend-based recommendations.
