@@ -22,7 +22,7 @@ APIs: Pinterest, OpenWeatherMap
 Installation Steps:
 
 1. Clone the repo
-git clone https://github.com/Prerana004/Dewie-s-Dressing-Room.git
+gh repo clone pavithra843/AI-Powered-Fashion-Advisor
 
 2. Create a virtual environment
 python -m venv venv
